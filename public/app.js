@@ -79,7 +79,7 @@ document.getElementById('generateReport').addEventListener('click', async () => 
 
     const data = await res.json();
     
-    if (data.length === 0) {
+    if (data.excelReportData.length === 0) {
       alert('No data found to generate report');
       return;
     }

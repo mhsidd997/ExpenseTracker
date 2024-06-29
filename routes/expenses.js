@@ -17,7 +17,6 @@ router.post('/', auth, async (req, res) => {
 
 router.get('/', auth, async (req, res) => {
   const filter = { userId: req.user.userId };
-  console.log("get: " , filter.userId);
   try {
     const expenses = await Expense.find(filter);
     res.json(expenses);
