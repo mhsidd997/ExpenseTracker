@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Tracker</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container mt-5">
+    <div id="auth" class="card p-4">
+      <h2 class="text-center">Register</h2>
+      <form id="registerForm" class="mb-4">
+        <div class="form-group">
+          <input type="text" id="registerUsername" class="form-control" placeholder="Username" required>
+        </div>
+        <div class="form-group">
+          <input type="password" id="registerPassword" class="form-control" placeholder="Password" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Register</button>
+      </form>
+      <h2 class="text-center">Login</h2>
+      <form id="loginForm">
+        <div class="form-group">
+          <input type="text" id="loginUsername" class="form-control" placeholder="Username" required>
+        </div>
+        <div class="form-group">
+          <input type="password" id="loginPassword" class="form-control" placeholder="Password" required>
+        </div>
+        <button type="submit" class="btn btn-success btn-block">Login</button>
+      </form>
+    </div>
+    <div id="dashboard" class="card p-4 mt-5" style="display:none;">
+        <div class="d-flex justify-content-between align-items-center">
+            <h2 class="text-center">Expense Tracker</h2>
+            <button id="logout" class="btn btn-danger">Logout</button>
+        </div>
+        <form id="expenseForm" class="mb-4">
+            <div class="form-group">
+              <select id="category" class="form-control" required>
+                <option value="">Select Category</option>
+                <option value="food">Food</option>
+                <option value="car">Car</option>
+                <option value="fuel">Fuel</option>
+                <option value="clothes">Clothes</option>
+                <option value="grocery">Grocery</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input type="number" id="amount" class="form-control" placeholder="Amount" required>
+            </div>
+            <div class="form-group">
+              <input type="date" id="date" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <input type="text" id="description" class="form-control" placeholder="Description">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Add Expense</button>
+        </form>
+        <h3 class="text-center">Expenses</h3>
+        <div id="expenses"></div>
+        <h3 class="text-center mt-4">Report</h3>
+        <button id="generateReport" class="btn btn-info btn-block">Generate Report</button>
+        <div id="report" class="mt-3"></div>
+        <h3 class="text-center mt-4">Expense Distribution</h3>
+        <div class="chart-container text-center" style="height: 350px; width: 350px; margin: 0 auto;">
+            <canvas id="expenseChart"></canvas>
+        </div>        
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
